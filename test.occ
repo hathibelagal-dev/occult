@@ -1,1 +1,3 @@
 my_var = 12 + 5;
+b = 10;
+c = my_var + b;

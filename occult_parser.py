@@ -59,14 +59,14 @@ def p_factor_float(p):
 
 def p_factor_variable(p):
     'factor : NAME'
-    p[0] = p[1]
+    p[0] = variables[p[1]]
 
 def p_factor_expr(p):
     'factor : LPAREN expression RPAREN'
     p[0] = p[2]
 
 def p_error(p):
-    print("Syntax error")
-    print(p)
+    if p:
+        print("Syntax error")
 
 parser = y.yacc()
