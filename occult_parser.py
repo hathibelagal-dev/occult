@@ -10,15 +10,16 @@ precedence = (
 
 variables = {}
 
-def p_statement_expr(p):
-    'statement : expression'
-    print(p[1])
-
-def p_statement_assign(p):
+def p_statement_equals(p):
     '''
-    statement : NAME EQUALS factor END
+    statement : NAME EQUALS expression END
     '''
     variables[p[1]] = p[3]
+    print(variables)
+
+def p_statement_expr(p):
+    'statement : expression END'
+    p[0] = p[1]
 
 def p_expression_plus(p):
     'expression : expression PLUS term'
