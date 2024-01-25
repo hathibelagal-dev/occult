@@ -12,6 +12,7 @@ tokens = (
     'EQUALS',
     'LPAREN',
     'RPAREN',
+    'END'
 )
 
 t_PLUS    = r'\+'
@@ -22,6 +23,7 @@ t_EQUALS  = r'='
 t_LPAREN  = r'\('
 t_RPAREN  = r'\)'
 t_NAME    = r'[a-zA-Z_][a-zA-Z0-9_]*'
+t_END     = ';'
 t_ignore = " \t\n"
 
 def t_FLOAT(t):
@@ -38,3 +40,4 @@ def t_error(x):
     print("Lexing error: %s" % x.value[0])
     sys.exit(0)
 
+lexer = l.lex()
