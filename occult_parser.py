@@ -15,7 +15,12 @@ def p_statement_equals(p):
     statement : NAME EQUALS expression END
     '''
     variables[p[1]] = p[3]
-    print(variables)
+
+def p_statement_out(p):
+    '''
+    statement : PRINT expression END
+    '''
+    print(p[2])
 
 def p_statement_expr(p):
     'statement : expression END'

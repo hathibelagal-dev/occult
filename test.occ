@@ -1,3 +1,4 @@
-☥my_var = 12 + 5 terminus
-☥b = 10 terminus
-☥c = ☥my_var + ☥b terminus
+🕯️my_var = 12.3 + 5 terminus
+🕯️b = 10 terminus
+🕯️c = 🕯️my_var + 🕯️b terminus
+imprime 🕯️c terminus
