@@ -1,6 +1,5 @@
 import ply.lex as l
 import sys
-from argparse import ArgumentParser
 
 tokens = (
     'NAME',
@@ -39,16 +38,3 @@ def t_error(x):
     print("Lexing error: %s" % x.value[0])
     sys.exit(0)
 
-occult_lex = l.lex()
-
-program = None
-with open(sys.argv[1], 'r') as f:
-    program = f.read()
-
-occult_lex.input(program)
-
-while True:
-    token = occult_lex.token()
-    if not token:
-        break
-    print(token)
