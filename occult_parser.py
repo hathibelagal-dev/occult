@@ -5,7 +5,6 @@ from occult_lex import tokens
 precedence = (
     ('left','PLUS','MINUS'),
     ('left','TIMES','DIVIDE'),
-    ('right','UMINUS'),
 )
 
 variables = {}
@@ -43,10 +42,6 @@ def p_expression_plus(p):
 def p_expression_minus(p):
     'expression : expression MINUS term'
     p[0] = p[1] - p[3]
-
-def p_expression_uminus(p):
-    'expression : MINUS expression %prec UMINUS'
-    p[0] = -p[2]
 
 def p_expression_term(p):
     'expression : term'

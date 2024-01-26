@@ -15,7 +15,7 @@ tokens = (
     'RPAREN',
     'END',
     'PRINT',
-    'CONCATENATE'
+    'CONCATENATE',
 )
 
 t_PLUS        = r'\+'
@@ -25,11 +25,11 @@ t_DIVIDE      = r'/'
 t_EQUALS      = r'='
 t_LPAREN      = r'\('
 t_RPAREN      = r'\)'
-t_END         = r'(terminus|finis)'
+t_END         = r'(terminus|finis|τέλος)'
 t_ignore      = " \t\n"
 t_NAME        = r'🕯️\|[a-zA-Z_][a-zA-Z0-9_]*'
-t_PRINT       = r'imprime'
-t_CONCATENATE = r'concatena'
+t_PRINT       = r'(imprime|manifesta|exara|γρᾰ́φε)'
+t_CONCATENATE = r'(concatena|συνδεῖ)'
 
 def t_STRING(t):
     r'\"[a-zA-Z0-9 .,:$@!?+\-*/=]+\"'
