@@ -10,6 +10,12 @@ precedence = (
 
 variables = {}
 
+def p_program(p):
+    '''
+    program : program statement
+            | statement
+    '''
+
 def p_statement_equals(p):
     '''
     statement : NAME EQUALS expression END
