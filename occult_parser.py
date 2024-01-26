@@ -1,5 +1,5 @@
 import ply.yacc as y
-
+import sys
 from occult_lex import tokens
 
 precedence = (
@@ -70,7 +70,15 @@ def p_factor_float(p):
 
 def p_factor_variable(p):
     'factor : NAME'
-    p[0] = variables[p[1]]
+    if p[1] in variables:
+        p[0] = variables[p[1]]
+    else:
+        print("Indēterminātum: " + p[1])
+        sys.exit(1)
+
+def p_factor_string(p):
+    'factor : STRING'
+    p[0] = p[1]
 
 def p_factor_expr(p):
     'factor : LPAREN expression RPAREN'
@@ -78,6 +86,7 @@ def p_factor_expr(p):
 
 def p_error(p):
     if p:
-        print("Syntax error")
+        print("Error syntaxis 💀")
+        sys.exit(3)
 
 parser = y.yacc()

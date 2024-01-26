@@ -2,6 +2,7 @@ import ply.lex as l
 import sys
 
 tokens = (
+    'STRING',
     'NAME',
     'INT',
     'FLOAT',
@@ -24,9 +25,14 @@ t_EQUALS  = r'='
 t_LPAREN  = r'\('
 t_RPAREN  = r'\)'
 t_END     = r'terminus'
-t_ignore = " \t\n"
+t_ignore  = " \t\n"
 t_NAME    = r'🕯️\|[a-zA-Z_][a-zA-Z0-9_]*'
 t_PRINT   = r'imprime'
+
+def t_STRING(t):
+    r'\"[a-zA-Z0-9 ]+\"'
+    t.value = str(t.value)[1:-1]
+    return t
 
 def t_FLOAT(t):
     r'\d+\.\d+'
