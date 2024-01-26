@@ -14,23 +14,25 @@ tokens = (
     'LPAREN',
     'RPAREN',
     'END',
-    'PRINT'
+    'PRINT',
+    'CONCATENATE'
 )
 
-t_PLUS    = r'\+'
-t_MINUS   = r'-'
-t_TIMES   = r'\*'
-t_DIVIDE  = r'/'
-t_EQUALS  = r'='
-t_LPAREN  = r'\('
-t_RPAREN  = r'\)'
-t_END     = r'terminus'
-t_ignore  = " \t\n"
-t_NAME    = r'🕯️\|[a-zA-Z_][a-zA-Z0-9_]*'
-t_PRINT   = r'imprime'
+t_PLUS        = r'\+'
+t_MINUS       = r'-'
+t_TIMES       = r'\*'
+t_DIVIDE      = r'/'
+t_EQUALS      = r'='
+t_LPAREN      = r'\('
+t_RPAREN      = r'\)'
+t_END         = r'terminus'
+t_ignore      = " \t\n"
+t_NAME        = r'🕯️\|[a-zA-Z_][a-zA-Z0-9_]*'
+t_PRINT       = r'imprime'
+t_CONCATENATE = r'concatena'
 
 def t_STRING(t):
-    r'\"[a-zA-Z0-9 ]+\"'
+    r'\"[a-zA-Z0-9 .,:$@!?+\-*/=]+\"'
     t.value = str(t.value)[1:-1]
     return t
 

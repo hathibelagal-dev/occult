@@ -32,6 +32,10 @@ def p_statement_expr(p):
     'statement : expression END'
     p[0] = p[1]
 
+def p_expression_concatenate(p):
+    'expression : expression CONCATENATE expression'
+    p[0] = str(p[1]) + str(p[3])
+
 def p_expression_plus(p):
     'expression : expression PLUS term'
     p[0] = p[1] + p[3]

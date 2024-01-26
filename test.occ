@@ -4,5 +4,8 @@
 imprime 🕯️|c * 3 + 19 * 🕯️|my_var / 2 terminus
 imprime 🕯️|b + 5 terminus
 imprime 🕯️|b + 8 * 3 terminus
-🕯️|d = "Hello world" terminus
+🕯️|d = "Hello world!!!" terminus
+🕯️|e = "3 + 2 = " terminus
 imprime 🕯️|d terminus
+imprime 🕯️|e concatena 3 + 2 terminus
+imprime "Alright, bye!" terminus
