@@ -23,7 +23,7 @@ t_DIVIDE  = r'/'
 t_EQUALS  = r'='
 t_LPAREN  = r'\('
 t_RPAREN  = r'\)'
-t_NAME    = r'🕯️[a-zA-Z_][a-zA-Z0-9_]*'
+t_NAME    = r'🕯️\|[a-zA-Z_][a-zA-Z0-9_]*'
 t_END     = r'terminus'
 t_PRINT   = r'imprime'
 t_ignore = " \t\n"
