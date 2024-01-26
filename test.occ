@@ -2,3 +2,5 @@
 🕯️|b = 10 terminus
 🕯️|c = 🕯️|my_var + 🕯️|b terminus
 imprime 🕯️|c * 3 + 19 * 🕯️|my_var / 2 terminus
+imprime 🕯️|b + 5 terminus
+imprime 🕯️|b + 8 * 3 terminus
