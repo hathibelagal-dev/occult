@@ -1,11 +1,12 @@
 🕯️|my_var = 12.3 + 5 terminus
-🕯️|b = 10 terminus
-🕯️|c = 🕯️|my_var + 🕯️|b terminus
-imprime 🕯️|c * 3 + 19 * 🕯️|my_var / 2 terminus
+🕯️|b = 10 τέλος
+🕯️|c = 🕯️|my_var + 🕯️|b τέλος
+γρᾰ́φε 🕯️|c * 3 + 19 * 🕯️|my_var / 2 terminus
 imprime 🕯️|b + 5 terminus
 imprime 🕯️|b + 8 * 3 terminus
 🕯️|d = "Hello world!!!" terminus
 🕯️|e = "3 + 2 = " terminus
-imprime 🕯️|d terminus
-imprime 🕯️|e concatena 3 + 2 terminus
+γρᾰ́φε 🕯️|d terminus
+exara 🕯️|e συνδεῖ 3 + 2 finis
+manifesta "4 * 3 = " concatena 4 * 3 τέλος
 imprime "Alright, bye!" terminus
