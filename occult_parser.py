@@ -15,6 +15,24 @@ def p_program(p):
             | statement
     '''
 
+def p_array(p):
+    '''
+    expression : LSQUARE sequence RSQUARE
+    '''
+    p[0] = p[2]
+
+def p_sequence_single(p):
+    '''
+    sequence : expression
+    '''
+    p[0] = [p[1]]
+
+def p_sequence_multiple(p):
+    '''
+    sequence : expression COMMA sequence
+    '''
+    p[0] = [p[1]] + p[3]
+
 def p_statement_equals(p):
     '''
     statement : NAME EQUALS expression END
@@ -71,6 +89,14 @@ def p_factor_variable(p):
     'factor : NAME'
     if p[1] in variables:
         p[0] = variables[p[1]]
+    else:
+        print("Indēterminātum: " + p[1])
+        sys.exit(1)
+
+def p_factor_array_variable(p):
+    'factor : NAME LSQUARE INT RSQUARE'
+    if p[1] in variables and type(variables[p[1]]) is list and len(variables[p[1]]) > p[3]:
+        p[0] = variables[p[1]][p[3]]
     else:
         print("Indēterminātum: " + p[1])
         sys.exit(1)

@@ -1,4 +1,5 @@
 🕯️|my_var = 12.3 + 5 terminus
+🕯️|my_array = [5, 6] terminus
 🕯️|b = 10 τέλος
 🕯️|c = 🕯️|my_var + 🕯️|b τέλος
 γρᾰ́φε 🕯️|c * 3 + 19 * 🕯️|my_var / 2 terminus
@@ -10,3 +11,6 @@ imprime 🕯️|b + 8 * 3 terminus
 exara 🕯️|e συνδεῖ 3 + 2 finis
 manifesta "4 * 3 = " concatena 4 * 3 τέλος
 imprime "Alright, bye!" terminus
+imprime [3, 2, "Woohoo!"] terminus
+imprime "An array: " concatena 🕯️|my_array terminus
+imprime "Second element of that array: " concatena 🕯️|my_array[1] terminus
