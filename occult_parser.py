@@ -98,7 +98,7 @@ def p_factor_array_variable(p):
     if p[1] in variables and type(variables[p[1]]) is list and len(variables[p[1]]) > p[3]:
         p[0] = variables[p[1]][p[3]]
     else:
-        print("Indēterminātum: " + p[1])
+        print(f"Indēterminātum: {p[1]}[{p[3]}]")
         sys.exit(1)
 
 def p_factor_string(p):
