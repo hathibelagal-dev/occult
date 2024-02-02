@@ -70,6 +70,22 @@ def p_statement_goto_e(p):
     else:
         print("Indēterminātum: " + p[2])
         sys.exit(1)
+        
+def p_statement_goto_gt(p):
+    'statement : GOTO_GT NAME'
+    if p[2] in ParsingData.positions and ParsingData.comparison == 2:
+        ParsingData.line_number = ParsingData.positions[p[2]]
+    else:
+        print("Indēterminātum: " + p[2])
+        sys.exit(1)
+        
+def p_statement_goto_lt(p):
+    'statement : GOTO_LT NAME'
+    if p[2] in ParsingData.positions and ParsingData.comparison == 1:
+        ParsingData.line_number = ParsingData.positions[p[2]]
+    else:
+        print("Indēterminātum: " + p[2])
+        sys.exit(1)        
 
 def p_statement_goto_le(p):
     'statement : GOTO_LE NAME'
@@ -81,6 +97,17 @@ def p_statement_goto_le(p):
     else:
         print("Indēterminātum: " + p[2])
         sys.exit(1)
+        
+def p_statement_goto_ge(p):
+    'statement : GOTO_GE NAME'
+    if p[2] in ParsingData.positions and (
+            ParsingData.comparison == 3 or
+            ParsingData.comparison == 2
+        ):
+        ParsingData.line_number = ParsingData.positions[p[2]]
+    else:
+        print("Indēterminātum: " + p[2])
+        sys.exit(1)        
 
 def p_statement_equals(p):
     '''
@@ -100,6 +127,12 @@ def p_statement_compare(p):
         ParsingData.comparison = 2
     else:
         ParsingData.comparison = 3
+
+def p_statement_exit(p):
+    '''
+    statement : EXIT
+    '''
+    sys.exit(0)
 
 def p_statement_out(p):
     '''

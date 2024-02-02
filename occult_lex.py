@@ -23,7 +23,8 @@ tokens = (
     'COLON',
     'GOTO', 'GOTO_E', 'GOTO_LE', 'GOTO_GE', 'GOTO_GT', 'GOTO_LT',
     'COMPARE',
-    'AND'
+    'AND',
+    'EXIT'
 )
 
 t_COMMA       = r','
