@@ -20,9 +20,13 @@ imprime "Alright!" terminus
 
 🕯️|i = 0 terminus
 signum 🕯️|L1:
-  🕯️|i =🕯️|i + 1 terminus
+  🕯️|i = 🕯️|i + 1 terminus
   imprime "Number: " concatena🕯️|i terminus
+  compara 🕯️|i et 10
+  adire= 🕯️|L2
   adire 🕯️|L1
 
 σημάδι🕯️|L2:
   imprime "Done" terminus
+  exī
+

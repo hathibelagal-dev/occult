@@ -21,7 +21,9 @@ tokens = (
     'COMMA',
     'LABEL',
     'COLON',
-    'GOTO',
+    'GOTO', 'GOTO_E', 'GOTO_LE', 'GOTO_GE', 'GOTO_GT', 'GOTO_LT',
+    'COMPARE',
+    'AND'
 )
 
 t_COMMA       = r','
@@ -36,12 +38,20 @@ t_LSQUARE     = r'\['
 t_RSQUARE     = r'\]'
 t_LABEL       = r'(signum|titulus|σημείο|σημάδι)'
 t_COLON       = r':'
+t_GOTO_E      = r'(adire=|πόρευε=)'
+t_GOTO_LE      = r'(adire<=|πόρευε<=)'
+t_GOTO_GE      = r'(adire>=|πόρευε>=)'
+t_GOTO_GT      = r'(adire>|πόρευε>)'
+t_GOTO_LT      = r'(adire<|πόρευε<)'
 t_GOTO        = r'(adire|πόρευε)'
 t_END         = r'(terminus|finis|τέλος)'
 t_ignore      = " \t\n"
 t_NAME        = r'🕯️\|[a-zA-Z_][a-zA-Z0-9_]*'
 t_PRINT       = r'(imprime|manifesta|exara|γρᾰ́φε)'
 t_CONCATENATE = r'(concatena|συνδεῖ)'
+t_COMPARE     = r'(compara|comparā|σύγκρισου)'
+t_AND         = r'(et|καί)'
+t_EXIT        = r'(exī|exi|ἐξέρχου)'
 
 def t_STRING(t):
     r'\".*?\"'

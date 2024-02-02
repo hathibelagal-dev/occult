@@ -7,6 +7,7 @@ class _ParsingData:
         self.line_number = None
         self.positions = {}
         self.current_line_number = 0
+        self.comparison = None
 
     def get_next_line(self, current):
         if not self.line_number:
@@ -62,11 +63,43 @@ def p_statement_goto(p):
         print("Indēterminātum: " + p[2])
         sys.exit(1)
 
+def p_statement_goto_e(p):
+    'statement : GOTO_E NAME'
+    if p[2] in ParsingData.positions and ParsingData.comparison == 3:
+        ParsingData.line_number = ParsingData.positions[p[2]]
+    else:
+        print("Indēterminātum: " + p[2])
+        sys.exit(1)
+
+def p_statement_goto_le(p):
+    'statement : GOTO_LE NAME'
+    if p[2] in ParsingData.positions and (
+            ParsingData.comparison == 3 or
+            ParsingData.comparison == 1
+        ):
+        ParsingData.line_number = ParsingData.positions[p[2]]
+    else:
+        print("Indēterminātum: " + p[2])
+        sys.exit(1)
+
 def p_statement_equals(p):
     '''
     statement : NAME EQUALS expression END
     '''
     variables[p[1]] = p[3]
+
+def p_statement_compare(p):
+    '''
+    statement : COMPARE NAME AND expression END
+    '''
+    v1 = variables[p[2]]
+    v2 = p[4]
+    if v1 < v2:
+        ParsingData.comparison = 1
+    elif v1 > v2:
+        ParsingData.comparison = 2
+    else:
+        ParsingData.comparison = 3
 
 def p_statement_out(p):
     '''
