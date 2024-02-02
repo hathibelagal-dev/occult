@@ -18,7 +18,10 @@ tokens = (
     'END',
     'PRINT',
     'CONCATENATE',
-    'COMMA'
+    'COMMA',
+    'LABEL',
+    'COLON',
+    'GOTO',
 )
 
 t_COMMA       = r','
@@ -31,6 +34,9 @@ t_LPAREN      = r'\('
 t_RPAREN      = r'\)'
 t_LSQUARE     = r'\['
 t_RSQUARE     = r'\]'
+t_LABEL       = r'(signum|titulus|σημείο|σημάδι)'
+t_COLON       = r':'
+t_GOTO        = r'(adire|πόρευε)'
 t_END         = r'(terminus|finis|τέλος)'
 t_ignore      = " \t\n"
 t_NAME        = r'🕯️\|[a-zA-Z_][a-zA-Z0-9_]*'
