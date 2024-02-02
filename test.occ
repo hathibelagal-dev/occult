@@ -23,8 +23,8 @@ signum 🕯️|L1:
   🕯️|i = 🕯️|i + 1 terminus
   imprime "Number: " concatena🕯️|i terminus
   compara 🕯️|i et 10
-  adire= 🕯️|L2
-  adire 🕯️|L1
+  adī= 🕯️|L2
+  adī 🕯️|L1
 
 σημάδι🕯️|L2:
   imprime "Done" terminus
