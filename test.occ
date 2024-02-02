@@ -22,7 +22,7 @@ imprime "Alright!" terminus
 signum 🕯️|L1:
   🕯️|i = 🕯️|i + 1 terminus
   imprime "Number: " concatena🕯️|i terminus
-  compara 🕯️|i et 10
+  compara 🕯️|i et 10 terminus
   adī= 🕯️|L2
   adī 🕯️|L1
 
