@@ -9,9 +9,9 @@ precedence = (
 
 variables = {}
 
-def p_program(p):
+def p_block(p):
     '''
-    program : program statement
+    block : block statement
             | statement
     '''
 
