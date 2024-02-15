@@ -52,7 +52,7 @@ def p_statement_exit(p):
     '''
     statement : EXIT
     '''
-    p[0] = ('EXIT')
+    p[0] = ('EXIT', None)
 
 def p_statement_out(p):
     '''
