@@ -2,24 +2,6 @@ import ply.yacc as y
 import sys
 from occult_lex import tokens
 
-class _ParsingData:
-    def __init__(self):
-        self.line_number = None
-        self.positions = {}
-        self.current_line_number = 0
-        self.comparison = None
-
-    def get_next_line(self, current):
-        if not self.line_number:
-            self.current_line_number = current
-            return current + 1
-        else:
-            x = self.line_number
-            self.line_number = None
-            return x
-
-ParsingData = _ParsingData()
-
 precedence = (
     ('left','PLUS','MINUS'),
     ('left','TIMES','DIVIDE'),
@@ -27,9 +9,9 @@ precedence = (
 
 variables = {}
 
-def p_block(p):
+def p_program(p):
     '''
-    block : block statement
+    program : program statement
             | statement
     '''
 
@@ -51,82 +33,11 @@ def p_sequence_multiple(p):
     '''
     p[0] = [p[1]] + p[3]
 
-def p_statement_label(p):
-    'statement : LABEL NAME COLON'
-    ParsingData.positions[p[2]] = ParsingData.current_line_number + 2
-
-def p_statement_goto(p):
-    'statement : GOTO NAME'
-    if p[2] in ParsingData.positions:
-        ParsingData.line_number = ParsingData.positions[p[2]]
-    else:
-        print("Indēterminātum: " + p[2])
-        sys.exit(1)
-
-def p_statement_goto_e(p):
-    'statement : GOTO_E NAME'
-    if p[2] in ParsingData.positions and ParsingData.comparison == 3:
-        ParsingData.line_number = ParsingData.positions[p[2]]
-    else:
-        print("Indēterminātum: " + p[2])
-        sys.exit(1)
-        
-def p_statement_goto_gt(p):
-    'statement : GOTO_GT NAME'
-    if p[2] in ParsingData.positions and ParsingData.comparison == 2:
-        ParsingData.line_number = ParsingData.positions[p[2]]
-    else:
-        print("Indēterminātum: " + p[2])
-        sys.exit(1)
-        
-def p_statement_goto_lt(p):
-    'statement : GOTO_LT NAME'
-    if p[2] in ParsingData.positions and ParsingData.comparison == 1:
-        ParsingData.line_number = ParsingData.positions[p[2]]
-    else:
-        print("Indēterminātum: " + p[2])
-        sys.exit(1)        
-
-def p_statement_goto_le(p):
-    'statement : GOTO_LE NAME'
-    if p[2] in ParsingData.positions and (
-            ParsingData.comparison == 3 or
-            ParsingData.comparison == 1
-        ):
-        ParsingData.line_number = ParsingData.positions[p[2]]
-    else:
-        print("Indēterminātum: " + p[2])
-        sys.exit(1)
-        
-def p_statement_goto_ge(p):
-    'statement : GOTO_GE NAME'
-    if p[2] in ParsingData.positions and (
-            ParsingData.comparison == 3 or
-            ParsingData.comparison == 2
-        ):
-        ParsingData.line_number = ParsingData.positions[p[2]]
-    else:
-        print("Indēterminātum: " + p[2])
-        sys.exit(1)        
-
 def p_statement_equals(p):
     '''
     statement : NAME EQUALS expression END
     '''
     variables[p[1]] = p[3]
-
-def p_statement_compare(p):
-    '''
-    statement : COMPARE NAME AND expression END
-    '''
-    v1 = variables[p[2]]
-    v2 = p[4]
-    if v1 < v2:
-        ParsingData.comparison = 1
-    elif v1 > v2:
-        ParsingData.comparison = 2
-    else:
-        ParsingData.comparison = 3
 
 def p_statement_exit(p):
     '''

@@ -18,15 +18,5 @@ imprime [3, 2, "Woohoo!"] terminus
 imprime "Sum of the elements of that array: "concatena (🕯️|my_array[0] + 🕯️|my_array[1]) terminus
 imprime "Alright!" terminus
 
-🕯️|i = 0 terminus
-signum 🕯️|L1:
-  🕯️|i = 🕯️|i + 1 terminus
-  imprime "Number: " concatena🕯️|i terminus
-  compara 🕯️|i et 10 terminus
-  adī= 🕯️|L2
-  adī 🕯️|L1
-
-σημάδι🕯️|L2:
-  imprime "Done" terminus
-  exī
+exī
 
