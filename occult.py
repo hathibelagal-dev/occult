@@ -19,6 +19,7 @@ ap.add_argument('-t', '--translate_to', choices = [
     'ruby',
     'bash'
 ], default = 'ast')
+ap.add_argument('-o', '--output_filename', default = 'occ.out')
 
 args = ap.parse_args()
 
@@ -28,4 +29,4 @@ if not args.input_program:
 with open(sys.argv[1], 'r') as f:
     program = f.read()
     ast = parser.parse(program)
-    items(ast, args.translate_to)
+    items(ast, args.translate_to, args.output_filename)
