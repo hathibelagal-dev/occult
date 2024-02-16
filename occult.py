@@ -1,12 +1,31 @@
 from occult_parser import parser
 from occult_gen import items
+import argparse
 import sys
 
-if len(sys.argv) != 2:
-    print(f"Usage: {sys.argv[0]} <file>")
+ap = argparse.ArgumentParser(
+    prog = "Occult",
+    description = "A very occult/sacred-looking language",
+    epilog = "Dominus vobiscum"
+)
+
+ap.add_argument('input_program')
+ap.add_argument('-t', '--translate_to', choices = [
+    'ast',
+    'json',
+    'js',
+    'python',
+    'perl',
+    'ruby',
+    'bash'
+], default = 'ast')
+
+args = ap.parse_args()
+
+if not args.input_program:
     sys.exit(2)
 
 with open(sys.argv[1], 'r') as f:
     program = f.read()
     ast = parser.parse(program)
-    items(ast)
+    items(ast, args.translate_to)
