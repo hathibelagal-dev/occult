@@ -16,7 +16,7 @@ imprime [3, 2, "Woohoo!"] terminus
 
 γρᾰ́φε "An array: " συνδεῖ 🕯️|my_array τέλος
 γρᾰ́φε "Second element of that array: " συνδεῖ 🕯️|my_array[1] τέλος
-imprime "Sum of the elements of that array: "concatena (🕯️|my_array[0] + 🕯️|my_array[1]) terminus
+imprime "Sum of the elements of that array: " concatena (🕯️|my_array[0] + 🕯️|my_array[1]) terminus
 imprime "Alright!" terminus
 
 exī
